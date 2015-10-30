@@ -8,12 +8,10 @@ namespace Cube
 {
     public class Slice : ISlice
     {
-
-
-
+        
         public ISlice rotate(Direction direction)
         {
-            return this;
+            return new Slice();
         }
     }
 }
