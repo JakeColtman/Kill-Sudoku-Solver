@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Cube;
 
 namespace CubeTest
 {
@@ -9,10 +10,23 @@ namespace CubeTest
 
         Cube.ISlice _slice;
 
+
         [TestInitialize]
         public void setup()
         {
-            _slice = new Cube.Slice(new Cube.IBlock[0]);
+            IBlock[] _basicBlocks = new IBlock[9]
+            {
+                new Block(Axes.x, Colour.Blue),
+                new Block(Axes.x, Colour.Red),
+                new Block(Axes.x, Colour.White),
+                new Block(Axes.x, Colour.Green),
+                new Block(Axes.x, Colour.Orange),
+                new Block(Axes.x, Colour.Blank),
+                new Block(Axes.x, Colour.Yellow),
+                new Block(Axes.x, Colour.Blank),
+                new Block(Axes.x, Colour.Yellow),
+            };
+            _slice = new Cube.Slice(_basicBlocks);
         }
 
         [TestMethod]
