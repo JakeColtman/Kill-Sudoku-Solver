@@ -28,7 +28,7 @@ namespace Cube
 
         public ISlice rotate(Direction direction)
         {
-            return new Slice();
+            return new Slice(new IBlock[0]);
         }
     }
 }

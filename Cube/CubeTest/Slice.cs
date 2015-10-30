@@ -7,9 +7,9 @@ namespace CubeTest
     [TestClass]
     public class SliceTest
     {
-        [TestMethod]
-        public void ()
-        {
-        }
+       // [TestMethod]
+      //  public void ()
+      //  {
+      //  }
     }
 }
