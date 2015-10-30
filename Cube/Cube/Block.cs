@@ -51,7 +51,7 @@ namespace Cube
             }
             else
             {
-                return Colour.Green;
+                return _colours[axis];
             }
             
         }

@@ -43,5 +43,14 @@ namespace CubeTest
 
         }
 
+        [TestMethod]
+        public void BlockReturnsColourOfAxisItsSetTo()
+        {
+            Cube.IBlock block = new Cube.Block(Cube.Axes.x, Cube.Colour.Blue);
+
+            Assert.AreEqual(block.get_colour_in_axis(Cube.Axes.y), Cube.Colour.Blue);            
+
+        }
+
     }
 }
