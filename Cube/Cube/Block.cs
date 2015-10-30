@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cube
 {
-    class Block : IBlock
+    public class Block : IBlock
     {
         public Colour get_colour_in_axis(Axes axis)
         {
