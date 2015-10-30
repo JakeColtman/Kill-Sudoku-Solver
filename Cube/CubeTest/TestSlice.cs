@@ -27,5 +27,11 @@ namespace CubeTest
             Assert.AreNotEqual(_slice,_slice.rotate(Cube.Direction.left));
         }
 
+        [TestMethod]
+        public void RotatedObjectContainsBlocks()
+        {
+            Assert.IsInstanceOfType(_slice.rotate(Cube.Direction.left).get_block_in_position(1, 1), typeof(Cube.IBlock));
+        }
+
     }
 }

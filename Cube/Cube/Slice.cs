@@ -8,7 +8,11 @@ namespace Cube
 {
     public class Slice : ISlice
     {
-        
+        public IBlock get_block_in_position(int x, int y)
+        {
+            throw new NotImplementedException();
+        }
+
         public ISlice rotate(Direction direction)
         {
             return new Slice();
