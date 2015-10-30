@@ -48,6 +48,7 @@
     <Compile Include="ICube.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Slice.cs" />
     <Compile Include="SliceIdentifier.cs" />
   </ItemGroup>
   <ItemGroup>
