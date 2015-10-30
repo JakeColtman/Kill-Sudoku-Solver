@@ -10,4 +10,10 @@ namespace Cube
 
     public enum Face {  front , back }
 
+    public struct SliceIdentifier
+    {
+        public Axes axis;
+        public Face face;
+    }
+
 }
