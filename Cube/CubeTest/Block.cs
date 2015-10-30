@@ -33,5 +33,15 @@ namespace CubeTest
 
         }
 
+        [TestMethod]
+        public void BlockReturnsDefaultColourIfAxisNotSet()
+        {
+            Cube.IBlock block = new Cube.Block(Cube.Axes.x, Cube.Colour.Blue);
+            
+            Assert.AreEqual(block.get_colour_in_axis(Cube.Axes.y), Cube.Colour.Blank);
+            Assert.AreEqual(block.get_colour_in_axis(Cube.Axes.z), Cube.Colour.Blank);
+
+        }
+
     }
 }
