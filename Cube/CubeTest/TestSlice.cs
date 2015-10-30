@@ -16,9 +16,16 @@ namespace CubeTest
         }
 
         [TestMethod]
-        public void RotateLeft()
+        public void RotateLeftDoestThrowError()
         {
             _slice.rotate(Cube.Direction.left);            
         }
+
+        [TestMethod]
+        public void RotationChangesTheSlice()
+        {
+            Assert.AreNotEqual(_slice,_slice.rotate(Cube.Direction.left));
+        }
+
     }
 }
