@@ -12,7 +12,7 @@ namespace CubeTest
         [TestInitialize]
         public void setup()
         {
-            _slice = new Cube.Slice();
+            _slice = new Cube.Slice(new Cube.IBlock[0]);
         }
 
         [TestMethod]
