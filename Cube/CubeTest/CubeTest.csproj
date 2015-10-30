@@ -53,7 +53,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Block.cs" />
-    <Compile Include="TestSlice.cs" />
+    <Compile Include="MinimalSlice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
