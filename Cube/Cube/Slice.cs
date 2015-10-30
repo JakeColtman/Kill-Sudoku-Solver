@@ -29,7 +29,35 @@ namespace Cube
 
         public ISlice rotate(Direction direction)
         {
-            return new Slice(_blocks);
+            IBlock[,] new_positions = new IBlock[3, 3];
+
+            if (direction == Direction.left)
+            {
+                new_positions[0, 0] = _blocks[2, 0];
+                new_positions[1, 0] = _blocks[2, 1];
+                new_positions[2, 0] = _blocks[2, 2];
+                new_positions[0, 1] = _blocks[1, 0];
+                new_positions[1, 1] = _blocks[1, 1];
+                new_positions[2, 1] = _blocks[2, 1];
+                new_positions[0, 2] = _blocks[0, 0];
+                new_positions[1, 2] = _blocks[0, 1];
+                new_positions[2, 2] = _blocks[0, 2];
+            }
+
+            else
+            {
+                new_positions[2, 0] = _blocks[0, 0];
+                new_positions[2, 1] = _blocks[1, 0];
+                new_positions[2, 2] = _blocks[2, 0];
+                new_positions[1, 0] = _blocks[0, 1];
+                new_positions[1, 1] = _blocks[1, 1];
+                new_positions[2, 1] = _blocks[2, 1];
+                new_positions[0, 0] = _blocks[0, 2];
+                new_positions[0, 1] = _blocks[1, 2];
+                new_positions[0, 2] = _blocks[2, 2];
+            }
+
+            return new Slice(new_positions);
         }
 
         static IBlock[,] format_input(IBlock[] blocks)

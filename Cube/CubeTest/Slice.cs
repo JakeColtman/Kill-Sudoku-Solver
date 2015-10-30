@@ -37,8 +37,22 @@ namespace CubeTest
             Assert.AreEqual(_slice.get_block_in_position(0, 2).get_colour_in_axis(Axes.x), Colour.White);
             Assert.AreEqual(_slice.get_block_in_position(1, 0).get_colour_in_axis(Axes.x), Colour.Green);
             Assert.AreEqual(_slice.get_block_in_position(1, 1).get_colour_in_axis(Axes.x), Colour.Orange);
+            
+        }
 
+        [TestMethod]
+        public void RotatingAndRotatingBackBringsBackToStartPoint()
+        {
+            ISlice _slice = new Slice(_basicBlocks);
+            ISlice newSlice =_slice.rotate(Direction.left).rotate(Direction.right);
+            Assert.AreEqual(newSlice.get_block_in_position(0, 0).get_colour_in_axis(Axes.x), Colour.Blue);
+            Assert.AreEqual(newSlice.get_block_in_position(0, 1).get_colour_in_axis(Axes.x), Colour.Red);
+            Assert.AreEqual(newSlice.get_block_in_position(0, 2).get_colour_in_axis(Axes.x), Colour.White);
+            Assert.AreEqual(newSlice.get_block_in_position(1, 0).get_colour_in_axis(Axes.x), Colour.Green);
+            Assert.AreEqual(newSlice.get_block_in_position(1, 1).get_colour_in_axis(Axes.x), Colour.Orange);
 
         }
+
+
     }
 }
