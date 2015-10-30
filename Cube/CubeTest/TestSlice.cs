@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace CubeTest
 {
     [TestClass]
-    public class TestSlice
+    public class MinimalTestSlice
     {
 
         Cube.ISlice _slice;
