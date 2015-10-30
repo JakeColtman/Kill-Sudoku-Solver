@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace Cube
 {
-    class Slice : ISlice
+    public class Slice : ISlice
     {
+
+
+
         public ISlice rotate(Direction direction)
         {
-            throw new NotImplementedException();
+            return this;
         }
     }
 }
