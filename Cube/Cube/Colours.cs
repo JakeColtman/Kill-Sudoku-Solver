@@ -13,6 +13,7 @@ namespace Cube
         Orange, 
         Yellow, 
         Blue,
-        White
+        White,
+        Blank
     }
 }
