@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Block.cs" />
     <Compile Include="Colours.cs" />
     <Compile Include="Geometry.cs" />
     <Compile Include="IBlock.cs" />
