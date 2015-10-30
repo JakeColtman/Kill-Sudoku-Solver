@@ -16,15 +16,15 @@ namespace CubeTest
         {
             IBlock[] _basicBlocks = new IBlock[9]
             {
-                new Block(Axes.x, Colour.Blue),
-                new Block(Axes.x, Colour.Red),
-                new Block(Axes.x, Colour.White),
-                new Block(Axes.x, Colour.Green),
-                new Block(Axes.x, Colour.Orange),
-                new Block(Axes.x, Colour.Blank),
-                new Block(Axes.x, Colour.Yellow),
-                new Block(Axes.x, Colour.Blank),
-                new Block(Axes.x, Colour.Yellow),
+                new Block(Axis.x, Colour.Blue),
+                new Block(Axis.x, Colour.Red),
+                new Block(Axis.x, Colour.White),
+                new Block(Axis.x, Colour.Green),
+                new Block(Axis.x, Colour.Orange),
+                new Block(Axis.x, Colour.Blank),
+                new Block(Axis.x, Colour.Yellow),
+                new Block(Axis.x, Colour.Blank),
+                new Block(Axis.x, Colour.Yellow),
             };
             _slice = new Cube.Slice(_basicBlocks);
         }

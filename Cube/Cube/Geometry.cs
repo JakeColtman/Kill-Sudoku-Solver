@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace Cube
 {
-    public enum Axes {  x , y, z }
+    public enum Axis {  x , y, z }
 
     public enum Face {  front , back }
 
     public enum Direction { left, right }
+
+    //public class 
 
 
 

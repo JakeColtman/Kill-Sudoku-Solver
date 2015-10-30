@@ -15,15 +15,15 @@ namespace CubeTest
         {
             _basicBlocks = new IBlock[9]
             {
-                new Block(Axes.x, Colour.Blue),
-                new Block(Axes.x, Colour.Red),
-                new Block(Axes.x, Colour.White),
-                new Block(Axes.x, Colour.Green),
-                new Block(Axes.x, Colour.Orange),
-                new Block(Axes.x, Colour.Blank),
-                new Block(Axes.x, Colour.Yellow),
-                new Block(Axes.x, Colour.Blank),
-                new Block(Axes.x, Colour.Yellow),
+                new Block(Axis.x, Colour.Blue),
+                new Block(Axis.x, Colour.Red),
+                new Block(Axis.x, Colour.White),
+                new Block(Axis.x, Colour.Green),
+                new Block(Axis.x, Colour.Orange),
+                new Block(Axis.x, Colour.Blank),
+                new Block(Axis.x, Colour.Yellow),
+                new Block(Axis.x, Colour.Blank),
+                new Block(Axis.x, Colour.Yellow),
             };
         }
 
@@ -32,11 +32,11 @@ namespace CubeTest
         public void SliceStoresBlocksInTheRightPlaces()
         {
             ISlice _slice = new Slice(_basicBlocks);
-            Assert.AreEqual(_slice.get_block_in_position(0, 0).get_colour_in_axis(Axes.x), Colour.Blue);
-            Assert.AreEqual(_slice.get_block_in_position(0, 1).get_colour_in_axis(Axes.x), Colour.Red);
-            Assert.AreEqual(_slice.get_block_in_position(0, 2).get_colour_in_axis(Axes.x), Colour.White);
-            Assert.AreEqual(_slice.get_block_in_position(1, 0).get_colour_in_axis(Axes.x), Colour.Green);
-            Assert.AreEqual(_slice.get_block_in_position(1, 1).get_colour_in_axis(Axes.x), Colour.Orange);
+            Assert.AreEqual(_slice.get_block_in_position(0, 0).get_colour_in_axis(Axis.x), Colour.Blue);
+            Assert.AreEqual(_slice.get_block_in_position(0, 1).get_colour_in_axis(Axis.x), Colour.Red);
+            Assert.AreEqual(_slice.get_block_in_position(0, 2).get_colour_in_axis(Axis.x), Colour.White);
+            Assert.AreEqual(_slice.get_block_in_position(1, 0).get_colour_in_axis(Axis.x), Colour.Green);
+            Assert.AreEqual(_slice.get_block_in_position(1, 1).get_colour_in_axis(Axis.x), Colour.Orange);
             
         }
 
@@ -45,11 +45,11 @@ namespace CubeTest
         {
             ISlice _slice = new Slice(_basicBlocks);
             ISlice newSlice =_slice.rotate(Direction.left).rotate(Direction.right);
-            Assert.AreEqual(newSlice.get_block_in_position(0, 0).get_colour_in_axis(Axes.x), Colour.Blue);
-            Assert.AreEqual(newSlice.get_block_in_position(0, 1).get_colour_in_axis(Axes.x), Colour.Red);
-            Assert.AreEqual(newSlice.get_block_in_position(0, 2).get_colour_in_axis(Axes.x), Colour.White);
-            Assert.AreEqual(newSlice.get_block_in_position(1, 0).get_colour_in_axis(Axes.x), Colour.Green);
-            Assert.AreEqual(newSlice.get_block_in_position(1, 1).get_colour_in_axis(Axes.x), Colour.Orange);
+            Assert.AreEqual(newSlice.get_block_in_position(0, 0).get_colour_in_axis(Axis.x), Colour.Blue);
+            Assert.AreEqual(newSlice.get_block_in_position(0, 1).get_colour_in_axis(Axis.x), Colour.Red);
+            Assert.AreEqual(newSlice.get_block_in_position(0, 2).get_colour_in_axis(Axis.x), Colour.White);
+            Assert.AreEqual(newSlice.get_block_in_position(1, 0).get_colour_in_axis(Axis.x), Colour.Green);
+            Assert.AreEqual(newSlice.get_block_in_position(1, 1).get_colour_in_axis(Axis.x), Colour.Orange);
 
         }
 

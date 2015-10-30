@@ -23,7 +23,7 @@ namespace Cube
 
         public IBlock get_block_in_position(int x, int y)
         {
-            if (x > 2 || y > 2) return new Block(Axes.x, Colour.Blank);
+            if (x > 2 || y > 2) return new Block(Axis.x, Colour.Blank);
             return _blocks[x, y];
         }
 
@@ -67,7 +67,7 @@ namespace Cube
             {
                 int row = ii / 3;
                 int col = ii % 3;
-                Console.WriteLine(row.ToString() + "--" + col.ToString() + "--" + blocks[ii].get_colour_in_axis(Axes.x));
+                Console.WriteLine(row.ToString() + "--" + col.ToString() + "--" + blocks[ii].get_colour_in_axis(Axis.x));
                 output[row, col] = blocks[ii];
             }
             return output;

@@ -8,7 +8,7 @@ namespace Cube
 {
     public struct SliceIdentifier
     {
-        public Axes axis;
+        public Axis axis;
         public Face face;
     }
 }

@@ -8,6 +8,6 @@ namespace Cube
 {
     public interface IBlock
     {
-        Colour get_colour_in_axis(Axes axis);
+        Colour get_colour_in_axis(Axis axis);
     }
 }
