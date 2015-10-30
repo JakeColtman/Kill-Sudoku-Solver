@@ -8,6 +8,8 @@ namespace Cube
 {
     public interface ICube
     {
-
+        bool is_complete();
+        ISlice get_slice(SliceIdentifier identifier);
+        ICube replace_slice(SliceIdentifier identifier, ISlice slice);
     }
 }
