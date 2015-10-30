@@ -10,7 +10,7 @@ namespace Cube
     {
         public IBlock get_block_in_position(int x, int y)
         {
-            throw new NotImplementedException();
+            return new Block(Axes.x, Colour.Blue);
         }
 
         public ISlice rotate(Direction direction)
