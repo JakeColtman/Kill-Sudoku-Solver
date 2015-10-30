@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Colours.cs" />
     <Compile Include="Geometry.cs" />
+    <Compile Include="IBlock.cs" />
     <Compile Include="ISlice.cs" />
     <Compile Include="ICube.cs" />
     <Compile Include="Program.cs" />
