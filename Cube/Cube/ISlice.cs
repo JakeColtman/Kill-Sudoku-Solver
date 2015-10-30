@@ -10,6 +10,7 @@ namespace Cube
     public interface ISlice
     {
         ISlice rotate(Direction direction);
+        IBlock get_block_in_position(int x, int y);
     }
 
 }
