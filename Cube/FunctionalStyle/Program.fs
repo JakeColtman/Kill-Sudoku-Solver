@@ -86,7 +86,53 @@ module RubikCube =
     let yPositions = [YPosition Left; YPosition YMiddle; YPosition Right] 
     let zPositions = [ZPosition Front; ZPosition ZMiddle; ZPosition Back]
 
-    let create_by_positions cubes xPos yPos zPos = 
+    let extract_slice rcube from_position = 
+        let newMapping = rcube |> Map.toList |> List.filter (fun (Coordinate (x, y, z), (value : Cube)) -> 
+                                    match (from_position, x, y, z) with 
+                                        | (XPosition g, XPosition x, _, _) -> g = x
+                                        | (YPosition g, _, YPosition y, _) -> g = y
+                                        | (ZPosition g, _, _, ZPosition z) -> g = z
+                                        ) 
+        RubikCube (newMapping)
+
+    let identify_remaining_no_zero_length_dimension (rcube: RubikCube) = 
+        rcube 
+            |> Map.toList 
+            |> List.map (fun (Coordinate (x,y,z), value) -> [x; y; z])
+            |> List.concat
+            |> List.distinct
+            |> List.groupBy (fun a ->
+                                match a with 
+                                    | XPosition x -> "x"
+                                    | YPosition y -> "y"
+                                    | ZPosition z -> "z"
+                            )
+           |> List.filter (fun (key,value) -> value.Length = 3)
+           |> List.map (fun (key, value) -> key)
+           |> List.take 1
+
+    let make_slices_from_dimension slice dimension_string = 
+        let position_list = 
+            match dimension_string with 
+                | "x" -> xPositions 
+                | "y" -> yPositions
+                | "z" -> zPositions
+
+        position_list 
+            |> List.map (fun x -> extract_slice slice x)
+           
+
+    let replace_slice rcube mapping = 
+        let cubeList = rcube |> Map.toList 
+        let newList = mapping |> Map.toList
+        (List.concat [newList; cubeList]) 
+            |> List.distinctBy (fun (key, value) -> key)
+            |> Map.ofList
+
+    let rotate_slice mapping = 
+        mapping |> Map.toList |> List.map (fun (key, value) -> (key, (Cube.rotateCube value))) |> Map.ofList
+
+    let create_by_positions cubes (xPos: Position list) (yPos: Position list) (zPos: Position list) = 
 
         let allPositions  = create_positions xPos yPos zPos
 
@@ -100,6 +146,7 @@ module RubikCube =
         let coordinates = 
             match perspective with 
             | (X, _) -> create_positions xPositions yPositions zPositions
+
             | (Y, _) -> create_positions yPositions xPositions zPositions
             | (Z, _) -> create_positions xPositions yPositions zPositions
 
@@ -143,7 +190,10 @@ let main argv =
     let cubes = [ for i in 1 .. 27 -> Cube.create Cube.Red ]
     let perspective = Geometry.X , Geometry.Right
     let cube = RubikCube.create (cubes)
-    let zcube = RubikCube.create_from_perspective cube perspective
-    printfn "%A" (RubikCube.create (cubes))
+    let slice = RubikCube.extract_slice cube (Geometry.ZPosition Geometry.Front)
+    printfn "%A" slice
+    let newDimension = RubikCube.identify_remaining_no_zero_length_dimension slice
+    let slicetwo = RubikCube.make_slices_from_dimension slice (newDimension.Head)
+    printfn "%A" slicetwo
     System.Console.ReadKey() |> ignore
     0 // return an integer exit code
