@@ -13,8 +13,7 @@ type Axis =
 
 type Direction = 
     | Left
-    | Rigth
-
+    | Right
 
 
 [<EntryPoint>]
