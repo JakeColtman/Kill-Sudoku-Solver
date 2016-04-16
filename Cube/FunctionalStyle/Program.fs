@@ -1,6 +1,22 @@
 ﻿// Learn more about F# at http://fsharp.org
 // See the 'F# Tutorial' project for more help.
 
+type Color = 
+    | Red
+    | Blue
+    | Green
+
+type Axis = 
+    | X
+    | Y 
+    | Z
+
+type Direction = 
+    | Left
+    | Rigth
+
+
+
 [<EntryPoint>]
 let main argv = 
     printfn "%A" argv
