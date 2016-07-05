@@ -35,9 +35,11 @@ def update_squares_through_box(grid, y_pos, x_pos, value):
     return grid
 
 class Sudoku:
-    def __init__(self, updaters):
+    def __init__(self, updaters = None):
         self.size = 9
         self.reset()
+        if updaters is None:
+            updaters = [update_squares_through_col, update_squares_through_row, update_squares_through_box]
         self.updaters = updaters
 
     def generate_new_values(self):
@@ -108,7 +110,3 @@ class Sudoku:
     def print(self):
         for i in range(self.size):
             print([x.possible_values for x in self.grid[i]])
-
-
-s = Sudoku([update_squares_through_col, update_squares_through_row, update_squares_through_box])
-s.solve()
