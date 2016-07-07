@@ -18,12 +18,11 @@ class KillerSudoku:
         self.constraints.append(constraint)
 
     def generate_new_values(self):
-        self.sudoku.generate_new_values()
         for pos_list, value in self.constraints:
             for index, (i, j) in enumerate(pos_list):
                 possible_values = [x for x in self.sudoku.grid[i][j].possible_values if x <= value]
                 if index + 1 == len(pos_list):
-                    if value not in pos_list:
+                    if value not in possible_values:
                         raise Exception()
                     chosen = value
                 else:
@@ -33,10 +32,11 @@ class KillerSudoku:
 
     def solve(self):
         counter = 0
-        while not self.validate():
+        while True:
             self.reset()
             try:
                 self.generate_new_values()
+                break
             except:
                 pass
             counter += 1
@@ -44,20 +44,6 @@ class KillerSudoku:
                 print(counter)
         self.print()
         return self.sudoku.grid
-
-    def validate(self):
-        for pos_list, value in self.constraints:
-            sum = 0
-            for pos in pos_list:
-                try:
-                    sum += self.sudoku.grid[pos[0]][pos[1]].possible_values[0]
-                except:
-                    print(pos)
-            if sum != value:
-                return False
-        if not self.sudoku.validate():
-            return False
-        return True
 
     def reset(self):
         self.sudoku.reset()

@@ -54,10 +54,11 @@ class Sudoku:
 
     def solve(self):
         counter = 0
-        while not self.validate():
+        while True:
             self.reset()
             try:
                 self.generate_new_values()
+                break
             except:
                 pass
             counter += 1
@@ -65,40 +66,6 @@ class Sudoku:
                 print(counter)
         self.print()
         return self.grid
-
-    def validate(self):
-
-        def list_contains_only_unique_elements(group):
-            return len([x.possible_values[0] for x in group]) == len(list(set([x.possible_values[0] for x in group])))
-
-        def generate_rows():
-            output = []
-            for i in range(self.size):
-                output.append([x for x in self.grid[i]])
-            return output
-
-        def generate_columns():
-            output = []
-            for i in range(self.size):
-                column = []
-                for j in range(self.size):
-                    column.append(self.grid[j][i])
-                output.append(column)
-            return output
-
-        def run():
-            for row in generate_rows():
-                if not list_contains_only_unique_elements(row):
-                    return False
-            for col in generate_columns():
-                if not list_contains_only_unique_elements(col):
-                    return False
-            return True
-
-        try:
-            return run()
-        except:
-            return False
 
     def reset(self):
         self.grid = []
